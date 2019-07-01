@@ -1,5 +1,5 @@
 = Hello World App
-:toc: macro
+:toc: preamble
 
 Welcome to the step-by-step guide of creating the Hello World application with Lisk Alpha SDK.
 A simple App, showcasing a minimal setup of a blockchain application with 1 [custom transaction](../custom-transactions.md) type: the "Hello" transaction.
