@@ -1,9 +1,10 @@
-# Hello World App
+= Hello World App
+:toc:
 
 Welcome to the step-by-step guide of creating the Hello World application with Lisk Alpha SDK.
 A simple App, showcasing a minimal setup of a blockchain application with 1 [custom transaction](../custom-transactions.md) type: the "Hello" transaction.
 
-The purpose of Hello World application is to explain how to use and how to implement custom transaction with the Lisk SDK. 
+The purpose of Hello World application is to explain how to use and how to implement custom transaction with the Lisk SDK.
 This custom transaction will extract the "hello" key value from the transaction asset property and save to the senders account.
 
 The Hello World implementation goes as following:
@@ -197,7 +198,7 @@ $ node index.js | npx bunyan -o short
 
 ## 3. Create a new transaction type
 
-For the Hello World App, we want to create a [custom transaction type](../custom-transactions.md) `HelloTransaction`: 
+For the Hello World App, we want to create a [custom transaction type](../custom-transactions.md) `HelloTransaction`:
 If an account has enough balance to process `HelloTransaction` transaction (fee is set to 1 LSK by default), the new "hello" property appears into this account's asset field.
 So after sending a valid `{"type": 10, "senderId": "16313739661670634666L", ... "asset": { "hello": "world" } }` transaction, the sender's account changes from e.g.: `{ address: "16313739661670634666L", ..., asset: null }`, to `{ "address": "16313739661670634666L", ..., "asset": {"hello": "world"}} }`.
 
@@ -219,15 +220,15 @@ class HelloTransaction extends BaseTransaction {
     /**
     * Set the `HelloTransaction` transaction TYPE to `10`.
     * Every time a transaction is received, it gets differentiated by the type.
-    * The first 10 types, from 0-9 is reserved for the default Lisk Network functions. 
+    * The first 10 types, from 0-9 is reserved for the default Lisk Network functions.
     */
 	static get TYPE () {
 		return 10;
 	}
-	
+
     /**
     * Prepares the necessary data for the `apply` and `undo` step.
-    * The "hello" property will be added only to sender's account, therefore it's the only resource needed in the `applyAsset` and `undoAsset` steps. 
+    * The "hello" property will be added only to sender's account, therefore it's the only resource needed in the `applyAsset` and `undoAsset` steps.
     */
     async prepare(store) {
         await store.account.cache([
@@ -236,10 +237,10 @@ class HelloTransaction extends BaseTransaction {
             },
         ]);
     }
-    	
+
     /**
     * Validation of the value of the "hello" property, defined by the `HelloTransaction` transaction signer.
-    * The implementation below checks, that the value of the "hello" property needs to be a string, no longer than 64 characters. 
+    * The implementation below checks, that the value of the "hello" property needs to be a string, no longer than 64 characters.
     */
     validateAsset() {
         const errors = [];
@@ -256,9 +257,9 @@ class HelloTransaction extends BaseTransaction {
         }
         return errors;
     }
-    
+
     /**
-    * applyAsset is where the custom logic of the Hello World app is implemented. 
+    * applyAsset is where the custom logic of the Hello World app is implemented.
     * applyAsset() and undoAsset() use the information about the sender's account from the `store`.
     * Here we can store additional information about accounts using the `asset` field. The content of property of "hello" transaction's asset gets saved into the "hello" property of the account's asset.
     */
@@ -297,7 +298,7 @@ class HelloTransaction extends BaseTransaction {
 }
 
 module.exports = HelloTransaction;
-``` 
+```
 
 > *See the file on Github: [hello_world/hello_transaction.js](https://github.com/LiskHQ/lisk-sdk-examples/blob/development/hello_world/hello_transaction.js)*
 
@@ -324,7 +325,7 @@ configDevnet.app.label = 'helloWorld-blockchain-application';
 
 const app = new Application(genesisBlockDevnet, configDevnet); // create the application instance
 
-app.registerTransaction(HelloTransaction.TYPE, HelloTransaction); // register the 'HelloTransaction' 
+app.registerTransaction(HelloTransaction.TYPE, HelloTransaction); // register the 'HelloTransaction'
 
 
 // the code block below starts the application and doesn't need to be changed
@@ -387,7 +388,7 @@ const { getAddressFromPublicKey } = require('@liskhq/lisk-cryptography');
 module.exports = (Transaction, inputs) => {
     // write some logic to validate the given inputs
     validateRequiredInputs(inputs);
-    
+
     // the relevant parameters of the transaction object are extracted and put into indicative variables
     const {
         data,
@@ -402,7 +403,7 @@ module.exports = (Transaction, inputs) => {
         secondPassphrase,
         timestamp,
     } = inputs;
-    
+
     // a new instance of the provided Transaction type is created by passing the transaction parameters
     const transaction = new Transaction(
         {
@@ -415,10 +416,10 @@ module.exports = (Transaction, inputs) => {
             timestamp,
         }
     );
-    
+
     // next, newly created transaction object needs to be signed by the sender, by utilizing the sign() method of the transaction type. As arguments, the passphrase and , if existent, the secondPassphrase are passed.
     transaction.sign(passphrase, secondPassphrase);
-    
+
     // the signed transaction object is returned in JSON format
     return asJSON(skipUndefined(transaction.toJSON()));
 }
@@ -441,7 +442,7 @@ const HelloTransaction = require('../hello_transaction');
 const getTimestamp = () => {
 	const epochTime = "2016-05-24T17:00:00.000Z" //default epoch time
 	// check config file or curl localhost:4000/api/node/constants to verify your epoc time
-	const millisSinceEpoc = Date.now() - Date.parse(epochTime); 
+	const millisSinceEpoc = Date.now() - Date.parse(epochTime);
 	const inSeconds = ((millisSinceEpoc) / 1000).toFixed(0);
 	return  parseInt(inSeconds);
 }
@@ -471,7 +472,7 @@ node print_sendable_hello-world.js
 
 The generated transaction object should look like this:
 ```json
-{  
+{
    "id":"1199714748623931346",
    "amount":"0",
    "type":10,
@@ -482,7 +483,7 @@ The generated transaction object should look like this:
    "fee":"100000000",
    "signature":"e6da5923ee9b769bd5624612af536ca4348d5b32c4552a05161a356e472b8708487022fd4e9787a1b7e548a98c64341f52f2b8b12a39d4115f820b8f01064003",
    "signatures":[],
-   "asset":{  
+   "asset":{
       "hello":"world"
    }
 }
@@ -500,7 +501,7 @@ Because the API of every node is only accessible from localhost by default, you 
 node print_sendable_hello-world.js | tee >(curl -X POST -H "Content-Type: application/json" -d @- localhost:4000/api/transactions) # displays a raw transaction on the console
 ```
 
-If the node accepted the transaction, it should respond with: 
+If the node accepted the transaction, it should respond with:
 ```
 {"meta":{"status":true},"data":{"message":"Transaction(s) accepted"},"links":{}}
 ```
@@ -512,14 +513,14 @@ To verify, that the transaction got included in the blockchain as well, query th
 ```
 psql lisk_dev
 lisk_dev=> SELECT id, "blockId", type, asset, "senderId" from trs WHERE id = '1199714748623931346';
-         id          |       blockId       | type |       asset        |       senderId        
+         id          |       blockId       | type |       asset        |       senderId
 ---------------------+---------------------+------+--------------------+-----------------------
  1199714748623931346 | 7665982141323077011 |   10 | {"hello": "world"} | 16313739661670634666L
 ```
 
 ```
 lisk_dev=> SELECT address, "publicKey", asset from mem_accounts WHERE address = '16313739661670634666L';
-        address        |                             publicKey                              |       asset        
+        address        |                             publicKey                              |       asset
 -----------------------+--------------------------------------------------------------------+--------------------
  16313739661670634666L | \xc094ebee7ec0c50ebee32918655e089f6e1a604b83bcaa760293c61e0f18ab6f | {"hello": "world"}
 ```
@@ -564,7 +565,7 @@ configDevnet.modules.http_api.access.public = true; // make the API accessible f
 
 const app = new Application(genesisBlockDevnet, configDevnet); // create the application instance
 
-app.registerTransaction(HelloTransaction.TYPE, HelloTransaction); // register the 'HelloTransaction' 
+app.registerTransaction(HelloTransaction.TYPE, HelloTransaction); // register the 'HelloTransaction'
 
 // the code block below starts the application and doesn't need to be changed
 app
@@ -578,7 +579,7 @@ app
 > *See the complete file on Github: [hello_world/index.js](https://github.com/LiskHQ/lisk-sdk-examples/tree/development/hello_world/index.js).*
 
 
-> __Optional:__ After first successful verification, you may want to reduce the default console log level (info) and file log level (debug).<br> 
+> __Optional:__ After first successful verification, you may want to reduce the default console log level (info) and file log level (debug).<br>
 > You can do so, by passing a copy of the config object `configDevnet` with customized config for the logger component:
 
 ```js
@@ -586,6 +587,6 @@ configDevnet.components.logger.fileLogLevel = "error"; // will only log errors a
 configDevnet.components.logger.consoleLogLevel = "none"; // no logs will be shown in console
 ```
 
-As next step, you can design a nice frontend application like [Lisk Explorer](https://explorer.lisk.io/), which is showing users assets data inside of their account page. 
+As next step, you can design a nice frontend application like [Lisk Explorer](https://explorer.lisk.io/), which is showing users assets data inside of their account page.
 
 See also section [Interact with the network](../interact-with-network.md).
