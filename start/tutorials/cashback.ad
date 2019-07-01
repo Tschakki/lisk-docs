@@ -1,6 +1,7 @@
-# Cashback App
+= Cashback App
+:toc: preamble
 
-A simple application which rewards its users for sending tokens. 
+A simple application which rewards its users for sending tokens.
 The cashback reward tokens are minted newly and increase the absolute amount of tokens in the network.
 
 The Cashback App implementation goes as following:
@@ -80,7 +81,7 @@ app
     .catch(error => {
         console.error('Faced error in application', error);
         process.exit(1);
-    });        
+    });
 ```
 > *See the complete file on Github: [cashback/index.js](https://github.com/LiskHQ/lisk-sdk-examples/tree/development/cashback/index.js).*
 
@@ -190,7 +191,7 @@ $ node index.js | npx bunyan -o short
 
 ## 3. Create a new transaction type
 
-Now, we want to create a new [custom transaction type](../custom-transactions.md) `CashbackTransaction`: 
+Now, we want to create a new [custom transaction type](../custom-transactions.md) `CashbackTransaction`:
 It extends the pre-existing transaction type `TransferTransaction`.
 The difference between the regular `TransferTransaction` and the `CashbackTransaction`, is that Cashback transaction type also pays out a 10% bonus reward to its sender.
 
@@ -229,7 +230,7 @@ class CashbackTransaction extends TransferTransaction {
 
     /**
     * The CashbackTransaction adds an inflationary 10% to senders account.
-    * Invoked as part of the apply() step of the BaseTransaction and block processing.  
+    * Invoked as part of the apply() step of the BaseTransaction and block processing.
     */
 	applyAsset(store) {
 		super.applyAsset(store);
@@ -269,7 +270,7 @@ class CashbackTransaction extends TransferTransaction {
 }
 
 module.exports = CashbackTransaction;
-``` 
+```
 > *See the file on Github: [cashback/cashback_transaction.js](https://github.com/LiskHQ/lisk-sdk-examples/blob/development/cashback/cashback_transaction.js)*
 
 ## 4. Register the new transaction type
@@ -295,7 +296,7 @@ configDevnet.app.label = 'cashback-blockchain-application';
 
 const app = new Application(genesisBlockDevnet, configDevnet); // create the application instance
 
-app.registerTransaction(CashbackTransaction.TYPE, CashbackTransaction); // register the 'CashbackTransaction' 
+app.registerTransaction(CashbackTransaction.TYPE, CashbackTransaction); // register the 'CashbackTransaction'
 
 
 // the code block below starts the application and doesn't need to be changed
@@ -354,7 +355,7 @@ const CashbackTransaction = require('../cashback_transaction');
 const getTimestamp = () => {
 	const epochTime = "2016-05-24T17:00:00.000Z" //default epoch time
 	// check config file or curl localhost:4000/api/node/constants to verify your epoc time
-	const millisSinceEpoc = Date.now() - Date.parse(epochTime); 
+	const millisSinceEpoc = Date.now() - Date.parse(epochTime);
 	const inSeconds = ((millisSinceEpoc) / 1000).toFixed(0);
 	return  parseInt(inSeconds);
 }
@@ -365,7 +366,7 @@ let c = createSendableTransaction(CashbackTransaction, { // the desired transact
 	amount: `${2 * (10 ** 8)}`, // we set the amount to 2 LSK
 	fee: `${10 ** 7}`, // we set the fee to 0.1 LSK
  	recipientId: '10881167371402274308L', // recipient address: dummy delegate genesis_100
- 	recipientPublicKey: 'addb0e15a44b0fdc6ff291be28d8c98f5551d0cd9218d749e30ddb87c6e31ca9', // public key of the recipient 
+ 	recipientPublicKey: 'addb0e15a44b0fdc6ff291be28d8c98f5551d0cd9218d749e30ddb87c6e31ca9', // public key of the recipient
  	senderPublicKey: 'c094ebee7ec0c50ebee32918655e089f6e1a604b83bcaa760293c61e0f18ab6f', // the senders publickey
  	passphrase: 'wagon stock borrow episode laundry kitten salute link globe zero feed marble', // the senders passphrase, needed to sign the transaction
  	secondPassphrase: null,
@@ -385,7 +386,7 @@ node print_sendable_cashback.js
 
 The generated transaction object should look like this:
 ```json
-{  
+{
    "id":"5372254888441494149",
    "amount":"200000000",
    "type":11,
@@ -470,7 +471,7 @@ Because the API of every node is only accessible from localhost by default, you 
 node print_sendable_cashback.js | tee >(curl -X POST -H "Content-Type: application/json" -d @- localhost:4000/api/transactions) # displays a raw transaction on the console
 ```
 
-If the node accepted the transaction, it should respond with: 
+If the node accepted the transaction, it should respond with:
 ```
 {"meta":{"status":true},"data":{"message":"Transaction(s) accepted"},"links":{}}
 ```
@@ -614,7 +615,7 @@ configDevnet.modules.http_api.access.public = true; // make the API accessible f
 
 const app = new Application(genesisBlockDevnet, configDevnet); // create the application instance
 
-app.registerTransaction(CashbackTransaction.TYPE, CashbackTransaction); // register the 'HelloTransaction' 
+app.registerTransaction(CashbackTransaction.TYPE, CashbackTransaction); // register the 'HelloTransaction'
 
 // the code block below starts the application and doesn't need to be changed
 app
@@ -627,7 +628,7 @@ app
 ```
 > *See the complete file on Github: [cashback/index.js](https://github.com/LiskHQ/lisk-sdk-examples/tree/development/cashback/index.js).*
 
-> __Optional:__ After first successful verification, you may wan to reduce the default console log level (info) and file log level (debug).<br> 
+> __Optional:__ After first successful verification, you may wan to reduce the default console log level (info) and file log level (debug).<br>
 > You can do so, by passing a copy of the config object `configDevnet` with customized config for the logger component:
 
 ```js
