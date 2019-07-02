@@ -5,7 +5,7 @@
 ```js
 const { Application, genesisBlockDevnet, configDevnet} = require('lisk-sdk'); // require the lisk-sdk package
 
-const app = new Application(genesisBlockDevnet, configDevnet); // start the node in a fully functional devnet
+const app = new Application(genesisBlockDevnet, configDevnet); ROOT
 const app = new Application(genesisBlockDevnet, { // sets the required values for label, protocol and version, overrides consoleLogLevel, uses default values for everything else
     app: {
         label: 'my-label',

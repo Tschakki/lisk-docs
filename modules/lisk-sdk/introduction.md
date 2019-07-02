@@ -121,7 +121,7 @@ To manage the Docker container, use the following commands:
 
 ```bash
 docker stop lisk_sdk_db # stop the container
-docker start lisk_sdk_db # start the container
+docker start lisk_sdk_db ROOT
 docker restart lisk_sdk_db # restart the container
 docker rm lisk_sdk_db # remove the container
 ```
@@ -253,7 +253,7 @@ mkdir my-app # create the root folder for your blockchain application
 cd my-app # navigate into the root folder
 npm init # initialize your package.json
 npm install --save lisk-sdk@alpha # install lisk-sdk alpha version and save it to package.json
-touch index.js # create the index file to start the application
+touch index.js ROOT
 ```
 
 Inside of `index.js`, require the `lisk-sdk` package to create and start the application.
@@ -284,7 +284,7 @@ node index.js | npx bunyan -o short # start the application
 This should start the application with the predefined default configurations, which will connect your app to a local devnet.
 From this point, you can start to [configure](configuration.md) and customize the application further.
 
-For more detailed explanations, check out the getting started sections for [building blockchain applications](../start/build-blockchain-app.adoc) and the [example applications](../start/tutorials.adoc), which describe the process of creating a blockchain application step-by-step.
+For more detailed explanations, check out the getting started sections for [building blockchain applications](../modules/ROOT/build-blockchain-app.adoc) and the [example applications](../modules/ROOT/tutorials.adoc), which describe the process of creating a blockchain application step-by-step.
 
 ## Get Involved
 

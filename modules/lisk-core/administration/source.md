@@ -194,7 +194,7 @@ dropdb lisk_main # delete Lisk Mainnet database
 wget https://downloads.lisk.io/lisk/main/blockchain.db.gz # download Lisk snapshot
 createdb lisk_main # create fresh Lisk Mainnet database
 gunzip -fcq blockchain.db.gz | psql -d lisk_main # import the downloaded snapshot into the new database
-pm2 start lisk # start Lisk Core node again
+pm2 start lisk ROOT
 ```
 
 ### Testnet
