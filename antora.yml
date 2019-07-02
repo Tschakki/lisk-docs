@@ -1,0 +1,5 @@
+name: docs-tschakki
+title: Docs Tschakki
+version: '1.1'
+start_page: start:start.adoc
+

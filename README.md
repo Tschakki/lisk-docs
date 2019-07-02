@@ -6,12 +6,12 @@ Welcome to the Lisk Documentation repository!
 
 Get started with the tutorials and getting started guides:
 
-- [Documentation Start](start/start.md)
-- [Getting started: Build a blockchain application](start/build-blockchain-app.md)
-- [Getting started: Interact with the network](start/interact-with-network.md)
-- [Getting started: Maintain a node](start/maintain-node.md)
-- [Tutorials](start/tutorials.md)
-- [Custom transactions](start/custom-transactions.md)
+- [Documentation Start](start/start.adoc)
+- [Getting started: Build a blockchain application](start/build-blockchain-app.adoc)
+- [Getting started: Interact with the network](start/interact-with-network.adoc)
+- [Getting started: Maintain a node](start/maintain-node.adoc)
+- [Tutorials](start/tutorials.adoc)
+- [Custom transactions](start/custom-transactions.adoc)
 
 See the documentation for each product:
 
