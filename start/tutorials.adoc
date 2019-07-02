@@ -18,7 +18,7 @@ Explains how to create a new transaction type from scratch.
 A simple example to showcase how to create a new transaction type by implementing the [`BaseTransaction` interface](custom-transactions.md).
 
 - [Full code example of Hello World app](https://github.com/LiskHQ/lisk-sdk-examples/tree/development/hello_world) on Github.
-- [Hello World Tutorial](tutorials/hello-world.md)
+- [Hello World Tutorial](tutorials/hello-world.adoc)
 
 ## Cashback
 
@@ -28,4 +28,4 @@ Built by extending the balance transfer transaction, in addition to the regular 
 This example shows you how to create a new custom transaction inheriting from a pre-existing transaction type.
 
 - [A full example Cashback application's codebase ](https://github.com/LiskHQ/lisk-sdk-examples/tree/development/cashback) is available Github.
-- [Cashback Tutorial](tutorials/cashback.md)
+- [Cashback Tutorial](tutorials/cashback.asciidoc)

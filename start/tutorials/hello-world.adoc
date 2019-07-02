@@ -1,6 +1,6 @@
 = Hello World App
 :toc: preamble
-:toclevels: 2
+:toclevels: 3
 
 Welcome to the step-by-step guide of creating the Hello World application with Lisk Alpha SDK.
 A simple App, showcasing a minimal setup of a blockchain application with 1 [custom transaction](../custom-transactions.md) type: the "Hello" transaction.
@@ -26,6 +26,8 @@ cd hello_world # navigate into the root folder
 ```
 
 As next step, we want to install the `lisk-sdk` package and add it to our projects' dependencies.
+
+### test
 
 ### Dependencies
 

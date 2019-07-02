@@ -44,12 +44,12 @@ You can choose the appropriate transaction types for your application and its us
 
 For comparison, please view the [list of all transaction types](../lisk-protocol/transactions.md) which are implemented in the Lisk Protocol.
 
-To create custom transaction types, utilize the provided `BaseTransaction` interface as described in the section for [custom transactions](custom-transactions.md).
+To create custom transaction types, utilize the provided `BaseTransaction` interface as described in the section for [custom transactions](custom-transactions.adoc).
 
-See the [tutorials](tutorials.md) to see examples of how to create custom transaction types and how to add them to your application:
+See the [tutorials](tutorials.adoc) to see examples of how to create custom transaction types and how to add them to your application:
 
-- [Hello World App](tutorials/hello-world.md): A example of a Lisk blockchain application with 1 custom transaction type, which extends the BaseTransaction type.
-- [Cashback App](tutorials/cashback.md): A more practical example creating the new transaction type `Cashback`. Cashback extends the pre-existing transaction type TransferTransaction, making for a straightforward implementation.
+- [Hello World App](tutorials/hello-world.adoc): A example of a Lisk blockchain application with 1 custom transaction type, which extends the BaseTransaction type.
+- [Cashback App](tutorials/cashback.asciidoc): A more practical example creating the new transaction type `Cashback`. Cashback extends the pre-existing transaction type TransferTransaction, making for a straightforward implementation.
 
 ### 3. Interact with the network
 While your network is up and running, interact with the network and the node through the API and use [Lisk Commander](../lisk-sdk/lisk-commander/introduction.md) or [Lisk Elements](../lisk-sdk/lisk-elements/introduction.md) to create sendable transaction objects.
@@ -62,6 +62,6 @@ Lisk Hub provides a simple and beautiful user interface to create and manage acc
 Once your blockchain is finished, and it is possible to send the transactions (and custom transactions), you can create a frontend to allow users to interact and use your blockchain application.
 To connect your frontend to your network, we recommend to make use of [Lisk Elements' packages](../lisk-sdk/lisk-elements/packages.md) like [lisk-api-client](../lisk-sdk/lisk-elements/packages/api-client.md).
 
-> Check out the example applications at the [tutorials](tutorials.md), to see concrete examples how to make first interactions with a blockchain application.
+> Check out the example applications at the [tutorials](tutorials.adoc), to see concrete examples how to make first interactions with a blockchain application.
 
-See more options in the getting started section [Interact with the network](interact-with-network.md).
+See more options in the getting started section [Interact with the network](interact-with-network.adoc).
