@@ -1,5 +1,5 @@
 = Hello World App
-:toc: preamble
+:toc: right
 :toclevels: 3
 
 Welcome to the step-by-step guide of creating the Hello World application with Lisk Alpha SDK.
