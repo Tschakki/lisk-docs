@@ -1,8 +1,6 @@
 Lisk Documentation
 ==================
 Tschakki Chuck <tschakki@asciidoctor.org>
-:author: Kismet Rainbow Chameleon
-:email: kismet@asciidoctor.org
 :toc:
 
 To onboard you efficiently, we’ve updated our documentation to reflect
