@@ -1,4 +1,5 @@
-= Lisk Documentation
+Lisk Documentation
+==================
 Tschakki Chuck<tschakki@asciidoctor.org>
 :toc:
 
