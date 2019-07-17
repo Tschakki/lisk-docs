@@ -1,6 +1,6 @@
 Lisk Documentation
 ==================
-Tschakki Chuck<tschakki@asciidoctor.org>
+Tschakki Chuck <tschakki@asciidoctor.org>
 :toc:
 
 To onboard you efficiently, we’ve updated our documentation to reflect
