@@ -1,4 +1,5 @@
 == Lisk Documentation
+Doc Write  <tschakki@asciidoctor.org>
 
 To onboard you efficiently, we’ve updated our documentation to reflect
 the most common actions that developers take on our site. Now you can
@@ -12,6 +13,15 @@ emoji:bear[100x]
 :Alice: -> :Bob:
 :bob: ..> :alice:
 ----
+
+
+[chart,line]
+....
+January,February,March
+28,48,40
+65,59,80
+....
+
 
 https://lisk.io/documentation/lisk-protocol[What is Lisk?] Our vision at
 Lisk is to empower individuals to create a more decentralized, efficient
