@@ -5,6 +5,14 @@ the most common actions that developers take on our site. Now you can
 easily find the information that is most relevant based on what you want
 to learn.
 
+emoji:bear[52x]
+
+[plantuml]
+----
+alice -> bob
+bob ..> alice
+----
+
 https://lisk.io/documentation/lisk-protocol[What is Lisk?] Our vision at
 Lisk is to empower individuals to create a more decentralized, efficient
 and transparent global economy. All of this isn’t possible without your
