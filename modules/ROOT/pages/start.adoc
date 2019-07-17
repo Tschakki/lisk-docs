@@ -5,12 +5,12 @@ the most common actions that developers take on our site. Now you can
 easily find the information that is most relevant based on what you want
 to learn.
 
-emoji:bear[52x]
+emoji:bear[100x]
 
 [plantuml]
 ----
-alice -> bob
-bob ..> alice
+:Alice: -> :Bob:
+:bob: ..> :alice:
 ----
 
 https://lisk.io/documentation/lisk-protocol[What is Lisk?] Our vision at
