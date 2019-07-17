@@ -10,6 +10,9 @@ to learn.
 
 emoji:bear[100x]
 
+You can contact {author} at {email}.
+{firstname} loves to hear from other chroniclers.
+
 [plantuml]
 ----
 :Alice: -> :Bob:
