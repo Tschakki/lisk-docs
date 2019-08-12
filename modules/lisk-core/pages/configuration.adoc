@@ -1,5 +1,6 @@
 == Lisk Core Configuration
-:toc: preamble
+:toc:
+:toc-placement: preamble
 
 === Structure
 
