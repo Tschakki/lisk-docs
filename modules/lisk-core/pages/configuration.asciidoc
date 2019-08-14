@@ -1,5 +1,5 @@
 = Lisk Core Configuration
-:toc: macro
+:toc:
 
 === Structure
 
