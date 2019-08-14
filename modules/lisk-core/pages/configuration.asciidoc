@@ -1,4 +1,4 @@
-== Lisk Core Configuration
+= Lisk Core Configuration
 :toc: macro
 
 === Structure
