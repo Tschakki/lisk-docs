@@ -1,6 +1,5 @@
 == Lisk Core Configuration
-:toc:
-:toc-placement: macro
+:toc: macro
 
 === Structure
 
